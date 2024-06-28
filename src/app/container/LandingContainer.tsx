@@ -1,16 +1,20 @@
-import React from 'react';
-import HeroSection from './section/HeroSection';
+import { type IService } from '~/shared/models/serviceInterfaces';
 import AboutUsSection from './section/AboutUsSection';
-import OurServiceSection from './section/OurServiceSection';
+import HeroSection from './section/HeroSection';
 import OurBranchSection from './section/OurBranchSection';
 import OurGallerySection from './section/OurGallerySection';
+import OurServiceSection from './section/OurServiceSection';
 
-const LandingContainer = () => {
+interface ILandingContainer {
+  services: IService[];
+}
+
+const LandingContainer = ({ services }: ILandingContainer) => {
   return (
     <main className="container h-full w-full space-y-20 pb-10">
       <HeroSection />
       <AboutUsSection />
-      <OurServiceSection />
+      <OurServiceSection services={services} />
       <OurBranchSection />
       <OurGallerySection />
     </main>
